@@ -3,6 +3,7 @@ name: cargo-deny
 permissions: {}
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - '.github/workflows/cargo-deny.yml'
@@ -11,9 +12,6 @@ on:
       - 'deny.toml'
   push:
     branches: [main, master]
-  schedule:
-    # Run weekly on Monday at 06:31 UTC
-    - cron: '31 6 * * 1'
 
 env:
   CARGO_TERM_COLOR: always
